@@ -41,6 +41,18 @@
   .sw-ruby{background:#8e1b2f;}
   .sw-storm{background:#6e7a86;}
   .sw-pearl{background:#f4f3ee;}
+  .sw-heavy{background:#4a4d52;}
+  .sw-cement{background:#9c9a94;}
+  .badge{display:inline-block;font-size:10px;font-weight:bold;letter-spacing:1.5px;padding:3px 9px;border-radius:999px;vertical-align:2px;margin-left:8px;}
+  .badge-av{background:#e6f8ee;color:#0a7a3a;border:1px solid #2ecc71;box-shadow:0 0 8px rgba(46,204,113,.6);animation:glow 1.8s ease-in-out infinite;}
+  @keyframes glow{0%,100%{box-shadow:0 0 4px rgba(46,204,113,.35)}50%{box-shadow:0 0 12px rgba(46,204,113,.9)}}
+  .badge-sold{background:#fdecee;color:#b3000f;border:1px solid var(--red);}
+  .unit.sold{opacity:.6;}
+  .unit.sold .u-trim{color:#3a3a3a;}
+  .h2-sold{color:var(--red);}
+  .soldnote{font-size:13px;color:var(--gray);margin:10px 0 4px;}
+  .soldgrp{font-size:13px;font-weight:bold;color:var(--ink);margin-top:16px;padding-bottom:4px;border-bottom:1px solid var(--line);}
+  @media(prefers-reduced-motion:reduce){.badge-av{animation:none}}
   .u-color{font-size:14px;color:var(--ink);margin-top:2px;}
   .u-timeline{font-size:12px;color:#1a1a1a;margin-top:4px;font-weight:bold;}
   .u-timeline span{color:#EB0A1E;}
@@ -76,6 +88,7 @@
     .u-right{text-align:left;}
   }
   @media print{
+    .badge-av{animation:none;box-shadow:none}
     .page{padding:0;}
     footer{background:none;color:var(--ink);border-top:4px solid var(--red);padding:14px 0 0;}
     .f-line{color:var(--ink);}
@@ -101,8 +114,8 @@ const SHEET_LIVE = true;
     <div class="head-text">
     <div class="dealer">McGrath Toyota of Iowa City</div>
     <h1>2026 Grand Highlander Availability</h1>
-    <div class="asof">Updated <strong>August 29, 2026</strong> &middot; All prices are MSRP</div>
-    <div class="cycle">Factory allocations arrive every two weeks &mdash; the next batch is expected soon. Units below can be claimed today with a deposit.</div>
+    <div class="asof">Updated <strong>September 10, 2026</strong> &middot; All prices are MSRP</div>
+    <div class="cycle">Factory allocations arrive every two weeks &mdash; the next batch is expected soon. Units marked <b style="color:#0a7a3a">AVAILABLE</b> can be claimed today with a deposit; units marked <b style="color:#b3000f">SOLD</b> are already spoken for.</div>
     </div>
   </header>
 
@@ -113,97 +126,309 @@ const SHEET_LIVE = true;
 
   <div id="sheet-content">
   <section>
-    <h2>In Transit &mdash; Built &amp; On the Way</h2>
-    <div class="unit">
-      <div class="u-main">
-        <div class="u-trim">Grand Highlander Hybrid MAX Platinum</div>
-        <div class="u-color"><span class="swatch sw-pearl"></span>Wind Chill Pearl &middot; Interior LA20</div>
-        <div class="u-equip">Options: Premium Paint (PC) &middot; All-Weather Floor Liner Package (2T) &middot; Door Edge Guards (D5)</div>
-      </div>
-      <div class="u-right">
-        <div class="u-price">$62,798</div>
-        <div class="u-stock">Stock S262047</div>
-        <div class="u-vin">VIN 5TDADAB55TS053897</div>
-      </div>
-    </div>
-    <div class="pipe-wrap">
-      <div class="pipe-head"><span class="stat">IN TRANSIT</span><strong>Estimated dealer arrival: Aug 30 &ndash; Sep 4</strong> &middot; Built Aug 27 at Princeton, Indiana</div>
-      <table class="pipe"><tr>
-        <td class="tk"><div class="pdot on"></div><div class="pd">06/18</div><div class="pn">Prod. Confirm</div></td>
-        <td class="tk"><div class="pdot on"></div><div class="pd">08/27</div><div class="pn">Build</div></td>
-        <td class="tk"><div class="pdot on"></div><div class="pd">08/27</div><div class="pn">Processing</div></td>
-        <td class="tk"><div class="pdot"></div><div class="pd">08/29&ndash;09/01</div><div class="pn">On Truck</div></td>
-        <td class="tk"><div class="pdot"></div><div class="pd">08/30&ndash;09/04</div><div class="pn">Arrival</div></td>
-      </tr></table>
-    </div>
-  </section>
-
-  <section>
     <h2>Factory Allocated &mdash; Scheduled for Production</h2>
     <div class="unit">
       <div class="u-main">
-        <div class="u-trim">Grand Highlander XLE</div>
-        <div class="u-color"><span class="swatch sw-black"></span>Midnight Black Metallic &middot; Interior EA20</div>
-        <div class="u-equip">Options: All-Weather Floor Liner Package (2T) &middot; Rear Hatch Cargo Lamps (43) &middot; Toyota Multimedia Screen Protector (87) &middot; Tow Hitch Receiver Package (DH) &middot; Alloy Wheel Locks (WL)</div>
-        <div class="u-timeline">Scheduled for production week of <span>Sep 25</span> &middot; Est. dealer arrival Sep 26 &ndash; Oct 7</div>
+        <div class="u-trim">Grand Highlander Hybrid XLE FWD <span class="badge badge-av">AVAILABLE</span></div>
+        <div class="u-color"><span class="swatch sw-black"></span>Midnight Black Metallic &middot; Interior EA10</div>
+        <div class="u-equip">Options: All-Weather Floor Liner Package (2T)</div>
+        
       </div>
       <div class="u-right">
-        <div class="u-price">$50,103</div>
-        <div class="u-vin">Temp. VIN 5TDAAAB53TS38H536</div>
+        <div class="u-price">$48,763</div><div class="u-vin">Temp. VIN 5TDABAA59TS40G153</div>
       </div>
     </div>
     <div class="unit">
       <div class="u-main">
-        <div class="u-trim">Grand Highlander Platinum</div>
-        <div class="u-color"><span class="swatch sw-pearl"></span>Wind Chill Pearl &middot; Interior LB10</div>
-        <div class="u-equip">Options: Premium Paint (PC) &middot; Tow Hitch Receiver Package (DH)</div>
-        <div class="u-timeline">Scheduled for production week of <span>Oct 6</span></div>
+        <div class="u-trim">Grand Highlander Limited AWD <span class="badge badge-av">AVAILABLE</span></div>
+        <div class="u-color"><span class="swatch sw-pearl"></span>Wind Chill Pearl &middot; Interior LC20</div>
+        <div class="u-equip">Options: Premium Paint (PC) &middot; Panoramic View Monitor (SB) &middot; Panoramic Moonroof (SR) &middot; All-Weather Floor Liner Package (2T)</div>
+        
       </div>
       <div class="u-right">
-        <div class="u-price">$58,445</div>
-        <div class="u-vin">Temp. VIN 5TDAAAB53TS39F491</div>
+        <div class="u-price">$55,768</div><div class="u-vin">Temp. VIN 5TDAAAB57TS38G275</div>
       </div>
     </div>
     <div class="unit">
       <div class="u-main">
-        <div class="u-trim">Grand Highlander Platinum</div>
-        <div class="u-color"><span class="swatch sw-black"></span>Midnight Black Metallic &middot; Interior LB10</div>
-        <div class="u-equip">Options: All-Weather Floor Liner Package (2T) &middot; Illuminated Door Sills (G4) &middot; Mudguards (MF)</div>
-        <div class="u-timeline">Scheduled for production week of <span>Oct 7</span></div>
-      </div>
-      <div class="u-right">
-        <div class="u-price">$57,983</div>
-        <div class="u-vin">Temp. VIN 5TDAAAB58TS39F714</div>
-      </div>
-    </div>
-    <div class="unit">
-      <div class="u-main">
-        <div class="u-trim">Grand Highlander Platinum</div>
+        <div class="u-trim">Grand Highlander Platinum AWD <span class="badge badge-av">AVAILABLE</span></div>
         <div class="u-color"><span class="swatch sw-ruby"></span>Ruby Flare Pearl &middot; Interior LB20</div>
         <div class="u-equip">Options: Premium Paint (PC) &middot; All-Weather Floor Liner Package (2T)</div>
         <div class="u-timeline">Scheduled for production week of <span>Sep 25</span></div>
       </div>
       <div class="u-right">
-        <div class="u-price">$57,903</div>
-        <div class="u-vin">Temp. VIN 5TDAAAB52TS38H947</div>
+        <div class="u-price">$57,903</div><div class="u-vin">Temp. VIN 5TDAAAB52TS38H947</div>
       </div>
     </div>
     <div class="unit">
       <div class="u-main">
-        <div class="u-trim">Grand Highlander Hybrid MAX Platinum</div>
-        <div class="u-color"><span class="swatch sw-blueprint"></span>Blueprint &middot; Interior LA20</div>
-        <div class="u-equip">Options: All-Weather Floor Liner Package (2T) &middot; Tow Hitch Receiver Package (DH) &middot; Illuminated Door Sills (G4) &middot; Illuminated Cargo Sills (J6) &middot; Mudguards (MF) &middot; Logo Side Puddle Lamp (PL)</div>
-        <div class="u-timeline">In production now &middot; Est. dealer arrival <span>Sep 30 &ndash; Oct 12</span></div>
+        <div class="u-trim">Grand Highlander Platinum AWD <span class="badge badge-av">AVAILABLE</span></div>
+        <div class="u-color"><span class="swatch sw-black"></span>Midnight Black Metallic &middot; Interior LB10</div>
+        <div class="u-equip">Options: All-Weather Floor Liner Package (2T) &middot; Illuminated Door Sills (G4) &middot; Mudguards (MF)</div>
+        <div class="u-timeline">Scheduled for production week of <span>Oct 7</span></div>
       </div>
       <div class="u-right">
-        <div class="u-price">$64,163</div>
-        <div class="u-vin">Temp. VIN 5TDADAB54TS38I430</div>
+        <div class="u-price">$57,983</div><div class="u-vin">Temp. VIN 5TDAAAB58TS39F714</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soldwall">
+    <h2 class="h2-sold">Sold &mdash; Spoken For, Shown for Reference</h2>
+    <p class="soldnote">These 2026 Grand Highlanders were on our allocation and are already claimed. They show what has been moving through the store &mdash; if one of these is your spec, we can match you against the next allocation.</p>
+    <h3 class="soldgrp">Grand Highlander Hybrid XLE &middot; 3 sold</h3>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid XLE FWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-meteor"></span>Celestial Silver Metallic &middot; Interior EA20</div>
+        <div class="u-equip">Options: Bench Seat (BS) &middot; All-Weather Floor Liner Package (2T) &middot; Mudguards (MF)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$48,923</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid XLE AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-pearl"></span>Wind Chill Pearl &middot; Interior EA10</div>
+        <div class="u-equip">Options: Premium Paint (PC) &middot; All-Weather Floor Liner Package (2T)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$50,838</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid XLE AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-meteor"></span>Celestial Silver Metallic &middot; Interior EA10</div>
+        <div class="u-equip">Options: Panoramic Moonroof (SR) &middot; All-Weather Floor Liner Package (2T)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$51,713</div>
+      </div>
+    </div>
+    <h3 class="soldgrp">Grand Highlander Hybrid Limited &middot; 6 sold</h3>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid Limited AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-black"></span>Midnight Black Metallic &middot; Interior LC10</div>
+        <div class="u-equip">Options: Panoramic View Monitor (SB) &middot; All-Weather Floor Liner Package (2T) &middot; Body Side Moldings (BM) &middot; Door Edge Guards (D5) &middot; Mudguards (MF)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$56,298</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid Limited AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-blueprint"></span>Blueprint &middot; Interior LC20</div>
+        <div class="u-equip">Options: Panoramic View Monitor (SB) &middot; Blackout Emblem Overlays And Nameplate Overlay (3C) &middot; Rear Hatch Cargo Lamps (43) &middot; Mudguards (MF) &middot; Integrated Dashcam (V1)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$56,582</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid Limited AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-black"></span>Midnight Black Metallic &middot; Interior LC20</div>
+        <div class="u-equip">Options: Panoramic Moonroof (SR) &middot; All-Weather Floor Liner Package (2T) &middot; Tow Hitch Receiver Package (DH)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$57,373</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid Limited AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-heavy"></span>Heavy Metal &middot; Interior LC20</div>
+        <div class="u-equip">Options: Premium Paint (PC) &middot; Panoramic View Monitor (SB) &middot; Panoramic Moonroof (SR) &middot; All-Weather Floor Liner Package (2T)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$57,518</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid Limited AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-pearl"></span>Wind Chill Pearl &middot; Interior LC10</div>
+        <div class="u-equip">Options: Bench Seat (BS) &middot; Premium Paint (PC) &middot; Panoramic View Monitor (SB) &middot; All-Weather Floor Liner Package (2T) &middot; Cross Bar Kit (3T) &middot; Rear Hatch Cargo Lamps (43) &middot; Tow Hitch Receiver Package (DH)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$57,773</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid Limited AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-heavy"></span>Heavy Metal &middot; Interior LC20</div>
+        <div class="u-equip">Options: Premium Paint (PC) &middot; Panoramic View Monitor (SB) &middot; Panoramic Moonroof (SR) &middot; All-Weather Floor Liner Package (2T) &middot; Cross Bar Kit (3T) &middot; Rear Hatch Cargo Lamps (43) &middot; Toyota Multimedia Screen Protector (87) &middot; Door Edge Guards (D5) &middot; Tow Hitch Receiver Package (DH)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$59,393</div>
+      </div>
+    </div>
+    <h3 class="soldgrp">Grand Highlander Hybrid Nightshade &middot; 5 sold</h3>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid Nightshade AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-pearl"></span>Wind Chill Pearl &middot; Interior LD20</div>
+        <div class="u-equip">Options: Nameplate Black Overlay (BK) &middot; Premium Paint (PC) &middot; All-Weather Floor Liner Package (2T) &middot; Mudguards (MF)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$56,708</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid Nightshade AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-black"></span>Midnight Black Metallic &middot; Interior LD20</div>
+        <div class="u-equip">Options: Nameplate Black Overlay (BK) &middot; All-Weather Floor Liner Package (2T) &middot; Rear Hatch Cargo Lamps (43) &middot; Tow Hitch Receiver Package (DH) &middot; Illuminated Door Sills (G4) &middot; Illuminated Cargo Sills (J6) &middot; Mudguards (MF) &middot; Logo Side Puddle Lamp (PL)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$58,428</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid Nightshade AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-cement"></span>Cement &middot; Interior LD20</div>
+        <div class="u-equip">Options: Nameplate Black Overlay (BK) &middot; Panoramic View Monitor (SB) &middot; Panoramic Moonroof (SR) &middot; All-Weather Floor Liner Package (2T) &middot; Body Side Moldings (BM) &middot; Mudguards (MF)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$58,463</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid Nightshade AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-black"></span>Midnight Black Metallic &middot; Interior LD20</div>
+        <div class="u-equip">Options: Nameplate Black Overlay (BK) &middot; Panoramic View Monitor (SB) &middot; Panoramic Moonroof (SR) &middot; All-Weather Floor Liner Package (2T) &middot; Rear Hatch Cargo Lamps (43) &middot; Tow Hitch Receiver Package (DH)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$59,303</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid Nightshade AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-pearl"></span>Wind Chill Pearl &middot; Interior LD20</div>
+        <div class="u-equip">Options: Nameplate Black Overlay (BK) &middot; Premium Paint (PC) &middot; Panoramic View Monitor (SB) &middot; Panoramic Moonroof (SR) &middot; SiriusXM Trial Offering: 33 Months (1S) &middot; Connected Services Trial Offering: 2 Additional Years of Drive Connect &amp; Remote Connect (1Y) &middot; All-Weather Floor Liner Package (2T) &middot; Paint Protection Film: Hood, Fenders, Mirror Backs &amp; Door Cups (3P) &middot; Rear Hatch Cargo Lamps (43) &middot; Quick Charging Cable Package (59) &middot; Body Side Moldings (BM) &middot; Door Edge Guards (D5) &middot; Illuminated Door Sills (G4) &middot; Cargo Net: Envelope (GN) &middot; Mudguards (MF) &middot; Running Boards (RB) &middot; Alloy Wheel Locks (WL)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$62,001</div>
+      </div>
+    </div>
+    <h3 class="soldgrp">Grand Highlander Hybrid MAX Platinum &middot; 3 sold</h3>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid MAX Platinum AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-black"></span>Midnight Black Metallic &middot; Interior LA20</div>
+        <div class="u-equip">Options: All-Weather Floor Liner Package (2T) &middot; Toyota Multimedia Screen Protector (87) &middot; Tow Hitch Receiver Package (DH) &middot; Mudguards (MF)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$63,353</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid MAX Platinum AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-black"></span>Midnight Black Metallic &middot; Interior LA40</div>
+        <div class="u-equip">Options: All-Weather Floor Liner Package (2T) &middot; Blackout Emblem Overlays And Nameplate Overlay (3C) &middot; Door Edge Guards (D5) &middot; 20-in. Black Satin Wheels (FL)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$64,191</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Hybrid MAX Platinum AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-ruby"></span>Ruby Flare Pearl &middot; Interior LA20</div>
+        <div class="u-equip">Options: Premium Paint (PC) &middot; Paint Protection Film: Hood, Fenders, Mirror Backs &amp; Door Cups (3P) &middot; Cross Bar Kit (3T) &middot; Toyota Multimedia Screen Protector (87) &middot; Body Side Moldings (BM) &middot; Door Edge Guards (D5) &middot; Tow Hitch Receiver Package (DH) &middot; Illuminated Door Sills (G4) &middot; Illuminated Cargo Sills (J6) &middot; Mudguards (MF) &middot; Logo Side Puddle Lamp (PL)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$65,564</div>
+      </div>
+    </div>
+    <h3 class="soldgrp">Grand Highlander XLE &middot; 2 sold</h3>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander XLE AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-black"></span>Midnight Black Metallic &middot; Interior EA20</div>
+        <div class="u-equip">Options: All-Weather Floor Liner Package (2T)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$48,613</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander XLE AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-pearl"></span>Wind Chill Pearl &middot; Interior EA20</div>
+        <div class="u-equip">Options: Bench Seat (BS) &middot; Premium Paint (PC) &middot; All-Weather Floor Liner Package (2T)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$49,088</div>
+      </div>
+    </div>
+    <h3 class="soldgrp">Grand Highlander Limited &middot; 1 sold</h3>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Limited AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-ruby"></span>Ruby Flare Pearl &middot; Interior LC20</div>
+        <div class="u-equip">Options: Premium Paint (PC) &middot; Panoramic View Monitor (SB) &middot; All-Weather Floor Liner Package (2T)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$54,418</div>
+      </div>
+    </div>
+    <h3 class="soldgrp">Grand Highlander Platinum &middot; 2 sold</h3>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Platinum AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-heavy"></span>Heavy Metal &middot; Interior LB40</div>
+        <div class="u-equip">Options: Premium Paint (PC) &middot; All-Weather Floor Liner Package (2T) &middot; Illuminated Cargo Sills (J6)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$58,248</div>
+      </div>
+    </div>
+    <div class="unit sold">
+      <div class="u-main">
+        <div class="u-trim">Grand Highlander Platinum AWD <span class="badge badge-sold">SOLD</span></div>
+        <div class="u-color"><span class="swatch sw-pearl"></span>Wind Chill Pearl &middot; Interior LB10</div>
+        <div class="u-equip">Options: Premium Paint (PC) &middot; All-Weather Floor Liner Package (2T) &middot; Blackout Emblem Overlays And Nameplate Overlay (3C) &middot; Door Edge Guards (D5) &middot; 20-in. Black Satin Wheels (FL) &middot; Illuminated Cargo Sills (J6) &middot; Mudguards (MF) &middot; Logo Side Puddle Lamp (PL)</div>
+        
+      </div>
+      <div class="u-right">
+        <div class="u-price">$60,606</div>
       </div>
     </div>
   </section>
 
   <div class="note">
-    <p><strong>This sheet is a snapshot in time and is subject to change at any moment.</strong> Availability changes daily and allocated vehicles are scheduled for production and can be claimed before they are built. Ask us for the full equipment breakdown on any vehicle. If the Grand Highlander you want isn&rsquo;t listed, we can place a factory order and match you against the next allocation.</p>
+    <p><strong>This sheet is a snapshot in time and is subject to change at any moment.</strong> Availability changes daily and allocated vehicles are scheduled for production and can be claimed before they are built. A unit is not held until Josh confirms it is still open and a deposit is placed. Sold units are shown for reference only. Ask us for the full equipment breakdown on any vehicle. If the Grand Highlander you want isn&rsquo;t listed, we can place a factory order and match you against the next allocation.</p>
   </div>
 
   </div><!-- /sheet-content -->
